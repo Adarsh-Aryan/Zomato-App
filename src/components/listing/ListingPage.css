@@ -1,0 +1,8 @@
+.listing_section{
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem auto;
+    width: 80%;
+
+}
+

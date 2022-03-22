@@ -1,0 +1,11 @@
+.filter_section{
+    width:22%;
+    height:825px;
+    padding:1rem;
+    background: white;
+}
+
+.filter > label{
+    display: block;
+    margin: 12px 0px;
+}

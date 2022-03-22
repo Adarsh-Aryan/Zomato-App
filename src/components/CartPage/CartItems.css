@@ -1,0 +1,9 @@
+.row{
+    align-items: center;
+}
+
+.quantity{
+    cursor: pointer;
+    width: 50%;
+    padding:0.5rem
+}

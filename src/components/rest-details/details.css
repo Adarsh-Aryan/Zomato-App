@@ -1,0 +1,36 @@
+.detail_section{
+    margin:5rem auto;
+    width: 90%;
+    
+}
+
+.restaurant_content{
+    display: flex;
+    padding: 1rem;
+}
+
+.restaurant_content >img{
+    height: 350px;
+}
+
+
+.restaurant_details{
+    margin-left: 2rem;
+    line-height: 2;
+    padding:1rem;
+    padding-top: 0rem;
+}
+
+.icons{
+    display: flex;
+    margin-top: 2rem;
+    
+}
+
+.sanitizer_icon >img{
+    width: 85%;
+}
+
+.homedelivery_icon > img{
+    width: 42%;
+}

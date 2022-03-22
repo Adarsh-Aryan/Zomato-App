@@ -1,0 +1,18 @@
+.menu_items{
+    background-color: #c7c7d3;
+    margin-left: 1rem;
+}
+
+.menu_item{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0rem;
+}
+
+.menu_item img{
+    width:100px
+}
+
+.menu_items > h1{
+    padding: 10px 13px;
+}
