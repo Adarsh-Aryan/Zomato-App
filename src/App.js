@@ -16,7 +16,7 @@ function App() {
   
   const {progress,setProgress}=useContext(ZomatoContext)
   
-  const authToken= sessionStorage.getItem('auth-token')
+  
 
   return (
     <Router>

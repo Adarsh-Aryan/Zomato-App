@@ -3,7 +3,7 @@ import ZomatoContext from '../../../context/ZomatoContext'
 
 const SortFilter = () => {
 
-    const {listingState:{sort},listingDispatch}=useContext(ZomatoContext)
+    const {listingDispatch}=useContext(ZomatoContext)
 
     return (
 

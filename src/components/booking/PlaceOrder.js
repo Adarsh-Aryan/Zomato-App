@@ -28,6 +28,7 @@ const PlaceOrder = () => {
 
     useEffect(() => {
         totalPrice();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart]);
 
     if(!sessionStorage.getItem('auth-token')){

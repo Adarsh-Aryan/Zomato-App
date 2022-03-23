@@ -53,6 +53,7 @@ const MenuItems = ({ rest_id }) => {
 
     useEffect(() => {
         fetchMenuItems();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
