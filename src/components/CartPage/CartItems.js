@@ -26,7 +26,7 @@ const CartItems = () => {
 
                                 </Col>
                                 <Col>
-                                    <span>Rs.{(item.menu_price)*(item.qty)}</span>
+                                    <span>Rs.{((item.menu_price)*(item.qty)).toFixed(2)}</span>
                                 </Col>
                                 <Col>
                                     <select name="quantity" className='quantity' onChange={(e)=>{

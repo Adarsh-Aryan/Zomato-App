@@ -16,10 +16,10 @@ const Cart = () => {
 
     const rest_id = sessionStorage.getItem('restaurantId')
 
-    console.log(typeof(rest_id))
+    
 
     const totalPrice=()=>{
-        const totalCost= cart.reduce((prev,curr)=> prev + (Number(curr.menu_price)*Number(curr.qty)),0)
+        const totalCost= cart.reduce((prev,curr)=> prev + ((Number(curr.menu_price)*Number(curr.qty))),0)
 
         setTotal(totalCost)
 
@@ -39,7 +39,7 @@ const Cart = () => {
                 <h1>No Result Found!</h1>
             }
             <div className="my-3">
-                <h1>Total Price: Rs.{total}</h1>
+                <h1>Total Price: Rs.{total.toFixed(2)}</h1>
             </div>
             <Button variant='danger' onClick={()=>{
                 navigate(`/details/${Number(rest_id)}`)
