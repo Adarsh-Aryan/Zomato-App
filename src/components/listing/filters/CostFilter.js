@@ -6,7 +6,7 @@ const CostFilter = () => {
     const {listingDispatch } = useContext(ZomatoContext)
 
     return (
-        <>
+        <div>
             <h5>Cost Filter</h5>
             <div className='filter' onChange={(e)=>{
                 listingDispatch({
@@ -71,7 +71,7 @@ const CostFilter = () => {
 
             </div>
             <hr />
-        </>
+        </div>
     )
 }
 

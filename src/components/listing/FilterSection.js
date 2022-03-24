@@ -7,10 +7,11 @@ import './FilterSection.css'
 const FilterSection = () => {
   return (
     <div className='filter_section'>
-      <div>
+      <div className='main_filter_heading'>
         <h4>Filters: By</h4>
+        <hr />
       </div>
-      <hr />
+      
       <CuisineFilter/>
       <CostFilter/>
       <SortFilter/>

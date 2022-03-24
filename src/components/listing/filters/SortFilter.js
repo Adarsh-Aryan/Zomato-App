@@ -8,7 +8,8 @@ const SortFilter = () => {
     return (
 
 
-        <>
+        <div>  
+
             <h5>Sort Filter</h5>
             <div className='filter' onChange={(e)=>{
                 listingDispatch({
@@ -29,7 +30,7 @@ const SortFilter = () => {
             </div>
           
 
-        </>
+        </div>
     )
 }
 

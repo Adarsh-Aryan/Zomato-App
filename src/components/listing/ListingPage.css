@@ -5,4 +5,33 @@
     width: 80%;
 
 }
+.filter_content{
+    width:22%
+}
+
+@media only screen and (max-width:1050px){
+    .listing_section{
+        flex-direction: column;
+    }
+    .filter_content{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media only screen and (max-width:750px){
+    .filter_content{
+        display: none;
+        
+    }
+
+}
+
+@media only screen and (min-width:750px){
+    .filter_btn{
+        display: none;
+    }
+}
+
+
 

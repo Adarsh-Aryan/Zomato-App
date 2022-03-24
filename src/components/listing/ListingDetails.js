@@ -94,7 +94,7 @@ const ListingDetails = () => {
     }
 
     return (
-        <div style={{ width: '70%' }}>
+        <div className='listing_content'>
             {filterListingData().map(item => {
                 return (
 
@@ -106,12 +106,12 @@ const ListingDetails = () => {
 
                             <h2>{item.restaurant_name}</h2>
                             <p>{item.address}</p>
-                            <div style={{display:'flex',justifyContent:'space-between'}}>
+                            <div style={{display:'flex',justifyContent:'space-between'}} className='label-container'>
                                 <p>Rs. {item.cost}</p>
                                 <div className="labelDiv">
                                     <span className="mx-2 label-primary">
                                         {item.mealTypes[0].mealtype_name}
-                                    </span>&nbsp;
+                                    </span>
                                     <span className="label-success">
                                         {item.mealTypes[1].mealtype_name}
                                     </span>
@@ -119,7 +119,7 @@ const ListingDetails = () => {
                                 <div className="labelDiv">
                                     <span className="mx-2 label-danger">
                                         {item.cuisines[0].cuisine_name}
-                                    </span>&nbsp;
+                                    </span>
                                     <span className="label-warning">
                                         {item.cuisines[1].cuisine_name}
                                     </span>

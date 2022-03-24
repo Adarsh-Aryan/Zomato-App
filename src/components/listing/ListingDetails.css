@@ -1,4 +1,6 @@
-
+.listing_content{
+    width: 70%;
+}
 
 .rest_content{
     display: flex;
@@ -52,5 +54,38 @@
 
 .rating {
     line-height: 5.4;
+}
+
+@media only screen and (max-width:1050px){
+    .listing_content{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .rest_content{
+        flex-direction: column;
+    }
+    .Image{
+        width: 100%;
+        display: block;
+    }
+    .Image > img{
+        height: 300px;
+        width: inherit;
+    }
+    .label-container{
+        align-items: center;
+        margin-bottom: 1rem;
+        
+    }
+    .labelDiv{
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+    }
+    .labelDiv >span{
+        margin: 0px !important;
+    }
 }
 

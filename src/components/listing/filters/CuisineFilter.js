@@ -6,7 +6,7 @@ const CuisineFilter = () => {
     const {listingDispatch}=useContext(ZomatoContext)
 
     return (
-        <>
+        <div>
             <h5>Cuisine Filter</h5>
             <div className='filter' onChange={(e)=>{
                 // console.log(e.target.value)
@@ -50,7 +50,7 @@ const CuisineFilter = () => {
                
             </div>
             <hr />
-        </>
+        </div>
 
     )
 }

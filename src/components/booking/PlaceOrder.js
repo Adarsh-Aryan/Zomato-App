@@ -107,7 +107,7 @@ const PlaceOrder = () => {
                     <label htmlFor="address">Address</label>
                     <textarea name="address" ref={addressRef} id="address" rows='8'></textarea>
                 </div>
-                <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                <div className='user-action'>
                     <h2>Total Cost: Rs {total}</h2>
                     
                     <div className='actions'>

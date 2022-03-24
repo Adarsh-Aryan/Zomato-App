@@ -1,6 +1,11 @@
 .menu_items{
     background-color: #c7c7d3;
     margin-left: 1rem;
+    padding: 1rem;
+}
+
+.menu_content{
+    width: 80%;
 }
 
 .menu_item{
@@ -10,9 +15,31 @@
 }
 
 .menu_item img{
-    width:100px
+    width:100px;
+    margin-right:1rem
 }
 
 .menu_items > h1{
     padding: 10px 13px;
+}
+
+@media only screen and (max-width:750px) {
+    .menu_items{
+        margin: 0px;
+        
+    }
+
+    .menu_item{
+        justify-content: space-between;
+    }
+    .menu_content{
+        display: flex;
+        width: 100%;
+    }
+
+    .menu_content span{
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+    }
 }

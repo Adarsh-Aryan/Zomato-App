@@ -73,10 +73,13 @@ const MenuItems = ({ rest_id }) => {
             {menuItems?.map((item) => {
                 return (
                     <div className="menu_item" key={item.menu_id}>
-                        <div style={{ width: '54%' }}>
+                        <div className='menu_content'>
                             <b>{item.menu_id}. </b>
-                            <img src={item.menu_image} alt={item.menu_name} />
-                            &nbsp; {item.menu_name}- Rs.{item.menu_price}
+                            <span>
+                                <img src={item.menu_image} alt={item.menu_name} />
+                                {item.menu_name}- Rs.{item.menu_price}
+                            </span>
+                            
                         </div>
                         <div>
                             {!cart.some(element=>

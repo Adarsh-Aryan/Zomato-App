@@ -24,13 +24,30 @@
 .icons{
     display: flex;
     margin-top: 2rem;
+    /* margin-right: 1rem; */
     
 }
 
+.sanitizer_icon{
+    margin-right: 1.5rem;
+}
+
 .sanitizer_icon >img{
-    width: 85%;
+    width: 100px;
 }
 
 .homedelivery_icon > img{
-    width: 42%;
+    width: 136px;
+}
+
+@media only screen and (max-width:550px){
+    .restaurant_content{
+        flex-direction: column;
+    }
+
+    .restaurant_details{
+        margin: 0px;
+        padding: 0px;
+        margin-top: 1rem;
+    }
 }
