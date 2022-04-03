@@ -55,7 +55,7 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
                     <div className="d-flex">
-                        {!sessionStorage.getItem('auth-token') ?
+                        {!(sessionStorage.getItem('auth-token')) ?
                             <Link to='/auth' className="btn btn-primary shadow-none mx-2">Login</Link>
                             : <>
                                 <button className='mx-2 btn btn-primary'>Hi {name}</button>
