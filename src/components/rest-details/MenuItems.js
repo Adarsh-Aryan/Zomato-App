@@ -33,9 +33,6 @@ const MenuItems = ({ rest_id }) => {
         })
 
 
-        
-
-
     }
 
     const RemoveItem = (item) => {
@@ -45,11 +42,13 @@ const MenuItems = ({ rest_id }) => {
 
         })
 
-       
-
-
-
     }
+
+    const handlePreview=()=>{
+        navigate('/previewOrders')
+        sessionStorage.setItem('userCart',JSON.stringify(cart))
+    }
+
 
     useEffect(() => {
         fetchMenuItems();
@@ -99,9 +98,7 @@ const MenuItems = ({ rest_id }) => {
 
 
 
-            {cart.length>0 && (<Button onClick={()=>{
-                navigate('/previewOrders')
-            }} variant='success' style={{margin:'0rem 1.5rem'}}>Preview</Button>)}
+            {cart.length>0 && (<Button onClick={handlePreview} variant='success' style={{margin:'0rem 1.5rem'}}>Preview</Button>)}
             
         </div>
     )

@@ -21,15 +21,11 @@ const ViewOrders = () => {
     })
 
     const data = await response.json()
-    setOrders(data)
+    setOrders(data)   
 
   }
 
-  const date = new Date().toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  })
+  
 
   useEffect(() => {
     fetchOrders()
@@ -81,15 +77,16 @@ const ViewOrders = () => {
         <tbody>
           {orders?.map(item => {
             return (
-              <tr key={item._id}>
-                <th>{item._id}</th>
+              <tr key={item.id}>
+                <th>{item.id}</th>
                 <th>{item.rest_name}</th>
                 <th>{item.name}</th>
                 <th>{item.phone}</th>
                 <th>{item.email}</th>
                 <th>Rs.{item.cost}</th>
-                <th>{date}</th>
+                <th>{item.date} </th>
                 <th>{item.status}</th>
+                <th>{item.bank_name}</th>
               </tr>
             )
           })}

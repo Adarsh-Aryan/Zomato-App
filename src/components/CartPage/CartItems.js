@@ -7,20 +7,20 @@ import { BsFillTrashFill } from 'react-icons/bs'
 
 const CartItems = () => {
 
-    const { state: { cart }, dispatch } = useContext(ZomatoContext)
+    const {dispatch } = useContext(ZomatoContext)
 
-
+    const userCart= JSON.parse(sessionStorage.getItem('userCart'))
 
     return (
         <>
             <ListGroup>
-                {cart?.map(item => {
+                {userCart?.map(item => {
                     return (
                         <ListGroup.Item key={item.menu_id}>
                             <div className='row-section'>
                                 <div className='cartItem_content'>
                                     <div>
-                                        <img src={item.menu_image} alt={item.menu_name} rounded fluid />
+                                        <img src={item.menu_image} alt={item.menu_name}/>
                                     </div>
                                     <div className='cartItem_name'>
                                         <span>{item.menu_name}</span>
