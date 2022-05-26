@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
-import { Spinner } from 'react-bootstrap';
-
-import ZomatoContext from '../../context/ZomatoContext';
-import './PlaceOrder.css';
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { Spinner } from "react-bootstrap";
+import ZomatoContext from "../../context/ZomatoContext";
+import "./PlaceOrder.css";
+import { postResponse } from "../../helper/parseResponse";
 
 const PlaceOrder = () => {
   const [total, setTotal] = useState(0);
@@ -14,7 +14,6 @@ const PlaceOrder = () => {
 
   const {
     state: { cart },
-    dispatch,
   } = useContext(ZomatoContext);
 
   const totalPrice = () => {
@@ -31,9 +30,11 @@ const PlaceOrder = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart]);
 
-  if (!sessionStorage.getItem('auth-token')) {
-    return window.location.replace('/auth');
+  if (!sessionStorage.getItem("auth-token")) {
+    return window.location.replace("/auth");
   }
+
+  console.log(total);
 
   const userInfo = JSON.parse(sessionStorage.userInfo);
 
@@ -41,25 +42,25 @@ const PlaceOrder = () => {
     const phoneValue = phoneRef.current.value;
     const addressValue = addressRef.current.value;
 
-    let orderData = {
-      id: Math.floor(Math.random() * 100000),
+    const orderData = {
+      _id: Math.floor(Math.random() * 100000),
       email: userInfo.email,
       name: userInfo.name,
-      rest_name: sessionStorage.getItem('restaurantName'),
+      rest_name: sessionStorage.getItem("restaurantName"),
       phone: phoneValue,
       address: addressValue,
       cost: total,
-      status: 'Pending',
+      status: "Pending",
       menuItem: cart,
     };
     setLoading(true);
 
     const response = await fetch(
-      'https://zomato-villa-api.herokuapp.com/placeOrder',
+      "https://zomato-payment-gateway.herokuapp.com/paynow",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(orderData),
       }
@@ -67,47 +68,26 @@ const PlaceOrder = () => {
 
     if (response.ok) {
       setLoading(false);
+      const data = await response.json();
+      const responseData = {
+        action: "https://securegw-stage.paytm.in/theia/processTransaction",
+        params: data,
+      };
 
-      console.log('order-taken');
-      dispatch({
-        type: 'CLEAR_CART',
-      });
-      sessionStorage.removeItem('userCart');
-      sessionStorage.removeItem('restaurantName');
-      sessionStorage.removeItem('restaurantId');
+      postResponse(responseData);
+      return;
+    }
 
-      // const transaction =await fetch('http://localhost:4100/paynow',{
-      //     method:'POST',
-      //     headers:{
-      //         'Content-Type':'application/json'
-      //     },
-      //     body:JSON.stringify(orderData)
-      // })
-
-      // console.log(transaction)
+    if (!response.ok) {
+      setLoading(false);
+      return;
     }
   };
 
   return (
     <section className="order">
       <h1>Orders Details</h1>
-      <form
-        className="form"
-        action="http://localhost:4100/paynow"
-        method="POST"
-      >
-        <input type="hidden" name="cost" value={total} />
-        <input
-          type="hidden"
-          name="id"
-          value={Math.floor(Math.random() * 100000)}
-        />
-        <input
-          type="hidden"
-          name="rest_name"
-          value={sessionStorage.getItem('restaurantName')}
-        />
-
+      <div className="form">
         <div className="controls">
           <div className="control">
             <label htmlFor="email">Email</label>
@@ -153,7 +133,7 @@ const PlaceOrder = () => {
                 {loading ? (
                   <Spinner animation="border" variant="light" />
                 ) : (
-                  'Submit'
+                  "Submit"
                 )}
               </button>
             ) : (
@@ -161,7 +141,7 @@ const PlaceOrder = () => {
             )}
           </div>
         </div>
-      </form>
+      </div>
     </section>
   );
 };
